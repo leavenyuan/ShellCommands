@@ -69,6 +69,14 @@ sudo update-alternatives --config javac
 sudo update-java-alternatives -l
 ```
 
+## Install JDK From Source File
+
+```s
+Download jdk-8u211-linux-x64.tar.gz from oracle website
+tar zxvf jdk-8u211-linux-x64.tar.gz
+java -version
+```
+
 ## Install Wireshark
 
 ```s
