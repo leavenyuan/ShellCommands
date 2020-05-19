@@ -179,3 +179,16 @@ sudo apt-get install sublime-text
 complie: cmd+B
 run: shift+cmd+B
 ```
+
+
+## Install tcpdump
+```s
+Download the rpm package for tcpdump.
+Log in to DSVA via SSH as DSVA user. The default password is “dsva”.
+Switch to root user using this command: $sudo -s
+Upload the package to DSVA under path:/home/dsva. You can use WinSCP for the transmission.
+Unpack the tar package:
+# tar xzvf tcpdump_dsva9.5.tar.gz
+Install the rpm packages:
+# rpm -ivh libpcap*.rpm tcpdump*.rpm
+```
