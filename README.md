@@ -69,6 +69,24 @@ sudo update-alternatives --config javac
 sudo update-java-alternatives -l
 ```
 
+## Install JDK from tar
+
+```s
+1. download JDK from oracle website
+2. mkdir /usr/local/java/
+3. tar -zxvf jdk-8u171-linux-x64.tar.gz -C /usr/local/java/
+4. vim /etc/profile
+   添加
+export JAVA_HOME=/usr/local/java/jdk1.8.0_171
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+5. source /etc/profile
+6. ln -s /usr/local/java/jdk1.8.0_171/bin/java /usr/bin/java
+6. java -version
+```
+
+
 ## Install JDK From Source File
 
 ```s
