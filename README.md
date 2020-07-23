@@ -188,6 +188,11 @@ sudo apt update
 sudo apt install python3.7
 ```
 
+## Install package in weak network
+```s
+sudo python3 -m pip install requests -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+```
+
 ## Install Sublime Text
 ```s
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
