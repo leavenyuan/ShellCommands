@@ -215,3 +215,19 @@ Unpack the tar package:
 Install the rpm packages:
 # rpm -ivh libpcap*.rpm tcpdump*.rpm
 ```
+
+## Truncate a file, empty a file to zero size
+```s
+Method1:
+    : > filename
+
+    ":" means True and produces no output
+    ">" redircts the output of preceding output to the following file
+
+Method2: output the content of /dev/null device, which returns only an end-of-file character 
+    cat /dev/null > filename
+
+Method3:
+    echo -n > filename
+    "-n" option tells echo not to append a newline
+```
