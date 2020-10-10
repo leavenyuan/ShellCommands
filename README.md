@@ -187,6 +187,10 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
 sudo apt install python3.7
 ```
+## Run Python3.9 docker
+```s
+sudo docker run -it python:3.9
+```
 
 ## Install package in weak network
 ```s
