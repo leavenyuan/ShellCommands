@@ -215,9 +215,16 @@ Log in to DSVA via SSH as DSVA user. The default password is “dsva”.
 Switch to root user using this command: $sudo -s
 Upload the package to DSVA under path:/home/dsva. You can use WinSCP for the transmission.
 Unpack the tar package:
-# tar xzvf tcpdump_dsva9.5.tar.gz
+
+$ tar xzvf tcpdump_dsva9.5.tar.gz
+libpcap-1.4.0-1.20130826git2dbcaa1.el6.x86_64.rpm
+tcpdump-4.0.0-3.20090921gitdf3cb4.2.el6.x86_64.rpm
+
 Install the rpm packages:
-# rpm -ivh libpcap*.rpm tcpdump*.rpm
+
+$ rpm -ivh tcpdump-4.0.0-3.20090921gitdf3cb4.2.el6.x86_64.rpm
+
+$ tcpdump -h
 ```
 
 ## Truncate a file, empty a file to zero size
