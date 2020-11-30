@@ -242,3 +242,9 @@ Method3:
     echo -n > filename
     "-n" option tells echo not to append a newline
 ```
+
+## Install hashlib on Ubuntu occur error
+```sh
+hashlib module is installed by default (I think Python 2.6+). You are trying to install a backport of it created for forward compatibility of old Python versions.
+Just do import hashlib and do your stuff.
+```
