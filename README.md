@@ -34,6 +34,15 @@ sudo apt-get update
 sudo apt-get install golang
 ```
 
+## Backgroup task on Linux
+```sh
+option1:
+   screen -S jmeter_ac -d -m bash -c './jmeter.sh -n -t Requests.jmx -l log'
+option2:
+   nohup kubectl logs -f pod-name --tail 0  > ~/log &
+
+```
+
 ## Install nvm
 
 ```s
