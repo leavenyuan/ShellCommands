@@ -34,7 +34,7 @@ sudo apt-get update
 sudo apt-get install golang
 ```
 
-## Backgroup task on Linux
+## Backgroud task on Linux
 ```sh
 option1:
    screen -S jmeter_ac -d -m bash -c './jmeter.sh -n -t Requests.jmx -l log'
