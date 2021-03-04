@@ -257,3 +257,16 @@ Method3:
 hashlib module is installed by default (I think Python 2.6+). You are trying to install a backport of it created for forward compatibility of old Python versions.
 Just do import hashlib and do your stuff.
 ```
+
+## Check logs in Unix
+```sh
+ls -l /var/log             # what is logged
+who                        # see who logged in
+last | grep sysadmin       # find the login history of the user: sysadmin
+cat /etc/rsyslog.conf     #LOG FILE SUMMARY
+
+direcotry:
+/var/log/messages    # log messages
+/var/log/cron        # Log cron stuff
+/var/log/boot.log    #  Save boot messages also to boot.log
+```
