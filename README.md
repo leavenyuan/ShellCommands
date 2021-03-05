@@ -270,3 +270,8 @@ direcotry:
 /var/log/cron        # Log cron stuff
 /var/log/boot.log    #  Save boot messages also to boot.log
 ```
+
+## Frequent Used Commands
+```s
+su {username}
+```
