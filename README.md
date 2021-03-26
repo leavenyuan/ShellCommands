@@ -275,3 +275,10 @@ direcotry:
 ```s
 su {username}
 ```
+
+## alias
+```sh
+$ vi .bashrc
+> alias test='ls -l'
+$ source ./.bashrc
+```
