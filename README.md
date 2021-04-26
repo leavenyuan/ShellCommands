@@ -314,4 +314,9 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
    more:
    cp /etc/fstab /etc/fstab.bak  # 备份etc/fstab文件
    echo /dev/vdb1 /mnt ext4 defaults 0 0 >> /etc/fstab  # 开机自动挂载.将磁盘挂载到某个目录下（如/mnt下）
+   
+   遇到报错: Mount: /dev/xxx already mounted or /mnt busy
+   dmsetup ls
+   dmsetup remove xxxxxx
+   dmsetup ls
    ```
