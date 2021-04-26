@@ -293,3 +293,9 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
 
 ## chmod chown 文件权限
    sudo chmod -R 777 /var/www
+
+## 切换root权限
+   sudo su
+   
+## 生效配置
+   source /etc/profile
