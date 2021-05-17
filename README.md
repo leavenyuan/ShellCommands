@@ -320,3 +320,12 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
    dmsetup remove xxxxxx
    dmsetup ls
    ```
+   
+   ### systemctl 
+   ```sh
+   # check service logs
+   journalctl -u docker.service
+   
+   ```
+   
+   [uninstall docker](https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker)
