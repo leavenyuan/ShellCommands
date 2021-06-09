@@ -329,3 +329,6 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
    ```
    
    [uninstall docker](https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker)
+   
+   ### Install ssh
+   [how to enable ssh on ubuntu](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-20-04/)
