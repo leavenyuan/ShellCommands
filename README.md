@@ -1,5 +1,20 @@
 # Ubuntu
 
+- output to file
+
+   if you want stderr as well use this:
+   ```sh
+   SomeCommand &> SomeFile.txt
+   ```
+   or this to append:
+   ```sh
+   SomeCommand &>> SomeFile.txt  
+   ```
+   if you want to have both stderr and output displayed on the console and in a file use this:
+   ```sh
+   SomeCommand 2>&1 | tee SomeFile.txt
+   ```
+
 [Different between bash and shell](https://stackoverflow.com/questions/5725296/difference-between-sh-and-bash)
 
 ## Install git
