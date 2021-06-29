@@ -1,11 +1,25 @@
 # Ubuntu
 
 
-### grap(s)
+### grep(s)
 
    grep from previous output & grep result meet any item in given list
    ```sh   
    cat nohup.out  | grep test_ | tee tempfile | grep -v line | tee tempfile | grep -E "ERR|OK|FAIL"
+   ```
+   exclue some word
+   ```sh
+   grep -v word
+   ```
+   
+   match whole word
+   ```sh
+   grep -w word
+   ```
+   
+   colour the matched
+   ```sh
+   grep word --colour
    ```
 
 - output to file
