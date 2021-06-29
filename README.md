@@ -1,5 +1,13 @@
 # Ubuntu
 
+
+### grap(s)
+
+   grep from previous output & grep result meet any item in given list
+   ```sh   
+   cat nohup.out  | grep test_ | tee tempfile | grep -v line | tee tempfile | grep -E "ERR|OK|FAIL"
+   ```
+
 - output to file
 
    if you want stderr as well use this:
