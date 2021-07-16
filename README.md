@@ -1,4 +1,4 @@
-# Ubuntu
+# shell commands
 
 
 ### grep(s)
@@ -38,6 +38,14 @@
    ```
 
 [Different between bash and shell](https://stackoverflow.com/questions/5725296/difference-between-sh-and-bash)
+
+
+#### xargs
+   - cat filename | xargs     #输出去除换行符的文本
+      
+      
+#### sed
+   - sed -i 's/xx/yy/g' filename      # -i: 将替换作用于源文件， g: 替换所有的匹配
 
 ## Install git
 
