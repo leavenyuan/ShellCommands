@@ -347,7 +347,10 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
 ## 生效配置
    source /etc/profile
 
-## mount and umount
+
+<details>
+   <summary> mount and umount </summary>
+
    ```sh
    fdisk -u /dev/vdb   # 分区数据盘
    fdisk -lu /dev/vdb  # 查看分区信息
@@ -365,6 +368,8 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
    dmsetup remove xxxxxx
    dmsetup ls
    ```
+</details>
+
    
    ### systemctl 
    ```sh
@@ -377,3 +382,86 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
    
    ### Install ssh
    [how to enable ssh on ubuntu](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-20-04/)
+   
+   
+   
+<details>
+   <summary> Opening a port on Linux </summary>
+   
+   ### 1.List all open ports
+      We can use the netstat command to list all open ports, including those of TCP, UDP, which are the most common protocols for packet transmission in the network layer.
+      NOTE: If your distribution doesn’t have netstat, it is not a problem. You can use the ss command to display open ports via listening sockets.
+   ```sh
+      netstat -lntu
+   ```
+      This will print all listening sockets (-l) along with the port number (-n), with TCP ports (-t) and UDP ports (-u) also listed in the output.
+   
+      OR
+   ```sh
+      ss -lntu
+   ```
+   
+   ### 2. Opening a port on Linux to Allow TCP Connections
+      
+      Let’s open a closed port and make it listen to TCP Connections, for the sake of this example.
+
+      Since port 4000 is not being used in my system, I choose to open port 4000. If that port is not open in your system, feel free to choose another closed port. Just make sure that it’s greater than 1023!
+
+      Again, just to make sure, let’s ensure that port 4000 is not used, using the netstat or the ss command.
+   ```sh
+      netstat -na | grep :4000
+      ss -na | grep :4000
+   ```
+      The output must remain blank, thus verifying that it is not currently used, so that we can add the port rules manually to the system iptables firewall.
+   
+   #### 2.1 For Ubuntu Users and ufw firewall based Systems
+   ```sh
+   sudo ufw allow 4000
+   ```
+   
+   #### 2.2 For CentOS and firewalld based Systems
+      For these types of systems, if you have firewalld as your primary firewall, it is recommended that you use the firewall-cmd to update your firewall rules, instead of the old iptables firewall.
+   ```sh
+      firewall-cmd --add-port=4000/tcp
+   ```
+      NOTE: This will reset the firewalld rules to default on a reboot, so if you want to modify this setting permanently, add the --permanent flag to the command.
+   ```sh
+      firewall-cmd --add-port=4000/tcp --permanent
+   ```
+
+   ### 3. Test the newly opened port for TCP Connections
+      First, we will start netcat (nc) and listen on port 4000, while sending the output of ls to any connected client. So after a client has opened a TCP connection on port 4000, they will receive the output of ls.
+   ```sh
+      ls | nc -l -p 4000
+   ```
+      This makes netcat listen on port 4000. Leave this session alone for now.
+      Open another terminal session on the same machine.
+      Since I’ve opened a TCP port, I’ll use telnet to check for TCP Connectivity. If the command doesn’t exists, again, install it using your package manager.
+      Format for telnet:
+   
+   ```sh
+      telnet [hostname/IP address] [port number]
+   ```
+   
+   ### 4. Need to update rules after every reboot
+      The approach presented in this article will only temporarily update the firewall rules until the system shuts down/reboots. So similar steps must be repeated to open the same port again after a restart.
+   #### 4.1 For ufw Firewall
+      The ufw rules are not reset on reboot, so if you’re a Ubuntu user, you need not worry about this part!
+      This is because it is integrated into the boot process and the kernel saves the firewall rules using ufw, via appropriate config files.
+   #### 4.2 For firewalld
+      As mentioned earlier, firewalld also suffers from the same problem, but this can be avoided by appending a --permananent flag to the initial command, when opening a port or setting any other rule.
+      For example, you can open the TCP Port 4000 permanently using the below command:
+   ```sh
+      firewall-cmd --zone=public --add-port=400/tcp --permanent
+   ```
+   #### 4.3 For iptables
+      For the iptables firewall, although this inconvenience cannot be avoided, we could minimize the hassle.
+      We can save the iptables rules to a config file, such as /etc/iptables.conf.
+   ```sh
+      sudo iptables-save | sudo tee -a /etc/iptables.conf
+   ```
+      We can then retrieve it from the config file after we reboot, using the below command:
+   ```sh
+      sudo iptables-restore < /etc/iptables.conf
+   ```
+</details>
