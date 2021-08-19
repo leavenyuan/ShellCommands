@@ -474,7 +474,8 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
       在服务器直接执行py，打出sys.path, 发现python为 /usr/local/lib/python3.7
       crontab触发执行py,python为 /usr/lib/python3.7
       $ crontab -e
+      # 注意执行的文件要能定位到，比如./要加上
       */10 * * * *  cd /home/xiaolu/automation-aix && /usr/local/bin/python3.7 ./tests/api/perf/Face_record_postback_multiprocessing.py > /dev/null >2&1
-      * * * * *  cd /home/xiaolu/automation-aix && /usr/bin/git add tests/api/perf/report.md && /usr/bin/git commit -m "commit report" && /usr/bin/git push origin Gateway >/dev/null >2&1
+      * * * * *  cd /home/xiaolu/automation-aix && git add ./tests/api/perf/report.md && git commit -m "commit report" && git push origin Gateway >/dev/null >2&1
 
    
