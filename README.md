@@ -47,7 +47,7 @@
 #### sed
    - sed -i 's/xx/yy/g' filename      # -i: 将替换作用于源文件， g: 替换所有的匹配
 
-## Install git
+#### Install git
 
 ```s
 sudo add-apt-repository ppa:git-core/ppa
@@ -55,7 +55,7 @@ sudo apt-get update
 sudo apt-get install git
 ```
 
-## Install VSCode
+#### Install VSCode
 
 ```s
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -65,14 +65,14 @@ sudo apt-get update
 sudo apt-get install code # or code-insiders
 ```
 
-## Install gvm (VPN)
+#### Install gvm (VPN)
 
 ```s
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 sudo apt-get install bison
 ```
 
-## Install Golang
+#### Install Golang
 
 ```s
 sudo add-apt-repository ppa:gophers/go
@@ -81,7 +81,7 @@ sudo apt-get update
 sudo apt-get install golang
 ```
 
-## Backgroud task on Linux
+#### Backgroud task on Linux
 ```sh
 option1:
    screen -S jmeter_ac -d -m bash -c './jmeter.sh -n -t Requests.jmx -l log'
@@ -90,21 +90,21 @@ option2:
 
 ```
 
-## Install nvm
+#### Install nvm
 
 ```s
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 source ~/.bashrc
 ```
 
-## Install node
+#### Install node
 
 ```s
 nvm install --lts=carbon
 nvm use --lts=carbon
 ```
 
-## Install Docker
+#### Install Docker
 
 ```s
 sudo apt-get remove docker docker-engine docker.io
@@ -113,7 +113,7 @@ sudo apt-get update
 sudo apt-get install docker docker.io
 ```
 
-## Install JDK
+#### Install JDK
 
 ```s
 sudo add-apt-repository ppa:webupd8team/java
@@ -125,7 +125,7 @@ sudo update-alternatives --config javac
 sudo update-java-alternatives -l
 ```
 
-## Install JDK from tar
+#### Install JDK from tar
 
 ```s
 1. download JDK from oracle website
@@ -143,7 +143,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
 ```
 
 
-## Install JDK From Source File
+#### Install JDK From Source File
 
 ```s
 Download jdk-8u211-linux-x64.tar.gz from oracle website
@@ -151,25 +151,25 @@ tar zxvf jdk-8u211-linux-x64.tar.gz
 java -version
 ```
 
-## Install Wireshark
+#### Install Wireshark
 
 ```s
 sudo apt-get install wireshark
 ```
 
-## Install ZAP
+#### Install ZAP
 
 ```s
 tar -zxvf ZAP_2.7.0_Linux.tar.gz
 ```
 
-## Install MySQL Workbench
+#### Install MySQL Workbench
 
 ```s
 sudo apt-get install mysql-workbench
 ```
 
-## Install Robotframework
+#### Install Robotframework
 
 ```s
 sudo pip install robotframework
@@ -180,7 +180,7 @@ sudo pip install robotframework-ride
 ride.py
 ```
 
-## Install Chrome
+#### Install Chrome
 
 ```s
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -189,7 +189,7 @@ sudo apt-get update
 sudo apt-get install google-chrome-stable
 ```
 
-## Install VLC
+#### Install VLC
 
 ```s
 sudo add-apt-repository ppa:n-muench/vlc
@@ -197,7 +197,7 @@ sudo apt-get update
 sudo apt-get install vlc
 ```
 
-## Install Sogou Pinyin
+#### Install Sogou Pinyin
 ```s
 Step1:
 Install Fcitx in that Sogou Pinyin develop based on fcitx keyboard input system, while Ubuntu's default one is iBus
@@ -235,7 +235,7 @@ Step3 Details:
     
 ```
 
-## Install Python3.7
+#### Install Python3.7
 ```s
 sudo apt update
 sudo apt install software-properties-common
@@ -243,17 +243,17 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
 sudo apt install python3.7
 ```
-## Run Python3.9 docker
+#### Run Python3.9 docker
 ```s
 sudo docker run -it python:3.9
 ```
 
-## Install package in weak network
+#### Install package in weak network
 ```s
 sudo python3 -m pip install requests -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
 ```
 
-## Install Sublime Text
+#### Install Sublime Text
 ```s
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -264,7 +264,7 @@ run: shift+cmd+B
 ```
 
 
-## Install tcpdump
+#### Install tcpdump
 ```s
 Download the rpm package for tcpdump.
 Log in to DSVA via SSH as DSVA user. The default password is “dsva”.
@@ -283,7 +283,7 @@ $ rpm -ivh tcpdump-4.0.0-3.20090921gitdf3cb4.2.el6.x86_64.rpm
 $ tcpdump -h
 ```
 
-## Truncate a file, empty a file to zero size
+#### Truncate a file, empty a file to zero size
 ```s
 Method1:
     : > filename
@@ -299,13 +299,13 @@ Method3:
     "-n" option tells echo not to append a newline
 ```
 
-## Install hashlib on Ubuntu occur error
+#### Install hashlib on Ubuntu occur error
 ```sh
 hashlib module is installed by default (I think Python 2.6+). You are trying to install a backport of it created for forward compatibility of old Python versions.
 Just do import hashlib and do your stuff.
 ```
 
-## Check logs in Unix
+#### Check logs in Unix
 ```sh
 ls -l /var/log             # what is logged
 who                        # see who logged in
@@ -318,19 +318,19 @@ direcotry:
 /var/log/boot.log    #  Save boot messages also to boot.log
 ```
 
-## Frequent Used Commands
+#### Frequent Used Commands
 ```s
 su {username}
 ```
 
-## alias
+#### alias
 ```sh
 $ vi .bashrc
 > alias test='ls -l'
 $ source ./.bashrc
 ```
 
-## source filename 与 sh filename 及./filename执行脚本的区别
+#### source filename 与 sh filename 及./filename执行脚本的区别
 ```sh
 当shell脚本具有可执行权限时，用sh filename与./filename执行脚本是没有区别的。
 ./filename是因为当前目录没有在PATH中，”.”是用来表示当前目录的。
@@ -338,13 +338,13 @@ sh filename：重新建立一个子shell，在子shell中执行脚本里面的�
 source filename：这个命令其实只是简单地读取脚本里面的语句依次在当前shell里面执行，没有建立新的子shell。那么脚本里面所有新建、改变变量的语句都会保存在当前shell里面。
 ```
 
-## chmod chown 文件权限
+#### chmod chown 文件权限
    sudo chmod -R 777 /var/www
 
-## 切换root权限
+#### 切换root权限
    sudo su
    
-## 生效配置
+#### 生效配置
    source /etc/profile
 
 
@@ -371,7 +371,7 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
 </details>
 
    
-   ### systemctl 
+#### systemctl 
    ```sh
    # check service logs
    journalctl -u docker.service
@@ -380,7 +380,7 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
    
    [uninstall docker](https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker)
    
-   ### Install ssh
+#### Install ssh
    [how to enable ssh on ubuntu](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-20-04/)
    
    
@@ -465,3 +465,16 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
       sudo iptables-restore < /etc/iptables.conf
    ```
 </details>
+
+   
+   
+#### crontab python脚本不执行分析&解决
+   $ sudo tail -f /var/mail/xiaolu    #输出crontab的执行命令和返回
+   $  tail /var/log/syslog -f
+   在服务器直接执行py，打出sys.path, 发现python为 /usr/local/lib/python3.7
+   crontab触发执行py,python为 /usr/lib/python3.7
+   $ crontab -e
+   */10 * * * *  cd /home/xiaolu/automation-aix && /usr/local/bin/python3.7 ./tests/api/perf/Face_record_postback_multiprocessing.py > /dev/null >2&1
+   * * * * *  cd /home/xiaolu/automation-aix && /usr/bin/git add tests/api/perf/report.md && /usr/bin/git commit -m "commit report" && /usr/bin/git push origin Gateway >/dev/null >2&1
+
+   
