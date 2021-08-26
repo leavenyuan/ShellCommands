@@ -478,4 +478,41 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
       */10 * * * *  cd /home/xiaolu/automation-aix && /usr/local/bin/python3.7 ./tests/api/perf/Face_record_postback_multiprocessing.py > /dev/null >2&1
       * * * * *  cd /home/xiaolu/automation-aix && git add ./tests/api/perf/report.md && git commit -m "commit report" && git push origin Gateway >/dev/null >2&1
 
+#### 修改网络配置和DNS
+   ```sh
+   # Debian/Ubuntu OS
+   $ vi /etc/network/interfaces
+   auto lo
+   iface lo inet loopback
+
+   auto ens3
+   iface ens3 inet static        #IPv4配置
+   address 132.98.174.248       #IPv4
+   gateway 132.98.174.193       #IPv4网关
+   netmask 255.255.255.192      #子网掩码
+
+   iface ens3 inet6 static       #IPv6配置
+   address 1200:7e45:0:f6::1e4a:3705    #IPv6地址
+   netmask 48   #掩码
+   gateway 1200:7e45:0:f6::1    #IPv6网关
+
+   iface ens3 inet6 static
+   address 1200:7e45:0:f6::235e:3b7e  #添加额外IPv6地址
+   netmask 48 #掩码
+   
+   
+   # for more usage
+   $ man interfaces
+   
+   
+   # RedHat
+   $ vi /etc/sysconfig/network-scripts
+   
+   ```
+   
+   
+   ```sh
+   # 修改DNS
+   $ vi /etc/resolv.conf
+   ```
    
