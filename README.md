@@ -570,3 +570,6 @@ $SHELL --version
 version_local=`echo $chart_local | sed "s/aurora-//g"`;  //correct, match rest of content except quried
 version_local=`echo $(chart_local) | sed "s/aurora-//g"`;  //chart_local: not found
 ```
+
+#### find不显示permission denied
+      $ find . -iname "helm" -print 2>/dev/null
