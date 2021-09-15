@@ -1,5 +1,12 @@
 # shell commands
 
+#### download file from telnet
+
+   1. telnet 10.151.116.222 23023 | tee telnet.log
+   2. 将要写入到telnet.log的文件写出到stdout
+   3. exit
+   4. vi/cat telnet.log
+
 
 ### grep(s)
 
