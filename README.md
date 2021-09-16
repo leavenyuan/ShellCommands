@@ -507,7 +507,8 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
    address 1200:7e45:0:f6::235e:3b7e  #添加额外IPv6地址
    netmask 48 #掩码
    
-   
+   # 生效
+   $ 执行 sudo /etc/init.d/networking restart
    # for more usage
    $ man interfaces
    
