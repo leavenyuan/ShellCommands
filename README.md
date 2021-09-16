@@ -509,6 +509,8 @@ source filename：这个命令其实只是简单地读取脚本里面的语句�
    
    # 生效
    $ 执行 sudo /etc/init.d/networking restart
+   $ reboot
+   
    # for more usage
    $ man interfaces
    
