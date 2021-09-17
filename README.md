@@ -1,5 +1,26 @@
 # shell commands
 
+#### add root user  and enable root login via ssh
+
+```sh
+$ sudo passwd root 
+# enter： 输入当前用户密码，并输入两次新密码
+$ su root
+
+$ vi /etc/ssh/sshd_config
+________________
+# Authentication:
+#LoginGraceTime 2m
+PermitRootLogin yes
+#StrictModes yes
+#MaxAuthTries 6
+#MaxSessions 10
+________________
+
+$ service sshd restart
+
+```
+
 #### download file from telnet
 
    1. telnet 10.151.116.222 23023 | tee telnet.log
