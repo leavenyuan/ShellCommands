@@ -1,5 +1,13 @@
 # shell commands
 
+#### lsof
+
+每隔2秒查询端口被谁连接
+
+```sh
+lsof -i :18001 -r 2
+```
+
 #### add root user  and enable root login via ssh
 
 ```sh
