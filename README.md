@@ -8,6 +8,13 @@
 lsof -i :18001 -r 2
 ```
 
+#### netcat
+```sh
+apt get install netcat
+nc -l -p 33992  # listen on port
+nc localhost 33902   # another server
+```
+
 #### add root user  and enable root login via ssh
 
 ```sh
