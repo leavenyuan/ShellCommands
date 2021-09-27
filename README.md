@@ -1,5 +1,16 @@
 # shell commands
 
+
+#### netstat
+```sh
+Below result returned while I perfoming invoking interface expose on 18020 on 10.151.116.214, so there is a ESTABLISHED record.
+
+root@cn0614006923l:~# netstat -anpt | grep 18020
+tcp6       0      0 :::18020                :::*                    LISTEN      28188/symphony-agen 
+tcp6       0    247 10.151.116.214:18020    10.151.124.65:58701     ESTABLISHED 28188/symphony-agen 
+```
+
+
 #### lsof
 
 每隔2秒查询端口被谁连接
@@ -13,6 +24,10 @@ lsof -i :18001 -r 2
 apt get install netcat
 nc -l -p 33992  # listen on port
 nc localhost 33902   # another server
+
+# transmit tar file
+in: nc -l 9009 > tar -xzv
+out: tar -zcvf - foldername |  nc in-server-ip 9009
 ```
 
 #### add root user  and enable root login via ssh
