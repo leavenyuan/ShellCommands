@@ -65,9 +65,10 @@ $ service sshd restart
    ```sh   
    cat nohup.out  | grep test_ | tee tempfile | grep -v line | tee tempfile | grep -E "ERR|OK|FAIL"
    ```
-   exclue some word
+   exclue some word, excluede multiple word
    ```sh
    grep -v word
+   egrep -v "kibana|nacos|rocket|web"
    ```
    
    match whole word
