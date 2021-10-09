@@ -1,5 +1,10 @@
 # shell commands
 
+#### 检查系统重启历史
+```sh
+last reboot
+```
+
 
 #### netstat
 ```sh
