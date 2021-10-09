@@ -1,5 +1,30 @@
 # shell commands
 
+#### 设置开启启动
+```sh
+https://www.cnblogs.com/downey-blog/p/10473939.html
+
+[Unit]
+Description=
+Documentation=
+After=network.target
+Wants=
+Requires=
+
+[Service]
+ExecStart=/home/downey/test.sh
+ExecStop=
+ExecReload=/home/downey/test.sh
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl start test.service  
+sudo systemctl enable test.service  
+```
+
 #### 检查系统重启历史
 ```sh
 last reboot
