@@ -52,7 +52,7 @@ lsof -i :18001 -r 2
 #### netcat
 ```sh
 apt get install netcat
-nc -l -p 33992  # listen on port
+nc -l -p 33902  # listen on port
 nc localhost 33902   # another server
 
 # transmit tar file
