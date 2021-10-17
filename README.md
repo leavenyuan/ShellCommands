@@ -1,5 +1,10 @@
 # shell commands
 
+#### Calculate file numbers recursively
+```sh
+$ find [filePath] -type f | wc -l
+```
+
 #### check mtime, ctime, atime of a file
 ```sh
 # Modified timestamp indicates the last time the contents of a file were modified.
