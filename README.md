@@ -1,5 +1,17 @@
 # shell commands
 
+#### check mtime, ctime, atime of a file
+```sh
+# Modified timestamp indicates the last time the contents of a file were modified.
+$ ls -l [filename]   
+
+# Changed timestamp indicates the last time some metadata of a file was changed.
+$ ls -lc [filename]
+
+# Access timestamp refers to the last time a file was read by a user.
+$ ls -lu [filename]
+```
+
 #### 设置开启启动
 ```sh
 https://www.cnblogs.com/downey-blog/p/10473939.html
