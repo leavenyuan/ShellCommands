@@ -1,5 +1,11 @@
 # shell commands
 
+#### apt
+```sh
+# check version of installed package
+$ apt-cache policy [package name]
+```
+
 #### Calculate file numbers recursively
 ```sh
 $ find [filePath] -type f | wc -l
