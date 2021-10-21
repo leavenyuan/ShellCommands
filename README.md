@@ -81,6 +81,11 @@ nc localhost 33902   # another server
 # transmit tar file
 in: nc -l 9009 > tar -xzv
 out: tar -zcvf - foldername |  nc in-server-ip 9009
+
+in: nc -l 9555 > file.txt/jpg
+out: nc [in's ip] 9555 < file.txt/jpg
+validate: md5sum [filename]
+
 ```
 
 #### add root user  and enable root login via ssh
