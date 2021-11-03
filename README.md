@@ -691,5 +691,12 @@ version_local=`echo $chart_local | sed "s/aurora-//g"`;  //correct, match rest o
 version_local=`echo $(chart_local) | sed "s/aurora-//g"`;  //chart_local: not found
 ```
 
-#### find不显示permission denied
-      $ find . -iname "helm" -print 2>/dev/null
+#### find用法
+   * find不显示permission denied
+   ```sh
+   $ find . -iname "helm" -print 2>/dev/null
+   ```
+   * find 排除某些文件
+   ```sh
+   $ find . -type f ! -name "*.log*" | xargs grep -i bucketname --colour
+   ```
