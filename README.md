@@ -1,5 +1,27 @@
 # shell commands
 
+#### 找到写入数据到某个文件的进程
+```sh
+比如我知道该文件目录下有这两个文件：
+nebula@nebula:/opt/gateway-setup-v0.3.0/compose/data/symphony-agent/data.db$ ll
+total 460
+lrwxrwxrwx 1 root root     44 11月  4 11:49 active -> /opt/symphony/data.db/conn-10.53.24.51-32012
+-rw------- 1 root root 524288 11月  8 14:44 conn-10.53.24.51-32012
+
+于是我想知道写入这个文件的进程号
+$ sudo lsof 2>/dev/null | grep conn-10.53.24.51-32012
+symphony- 14437 14439             root  mem-W     REG                8,2              4063388 /opt/symphony/data.db/conn-10.53.24.51-32012 (stat: No such file or directory)
+symphony- 14437 14439             root    3uW     REG                8,2    524288    4063388 /opt/symphony/data.db/conn-10.53.24.51-32012
+
+通过返回，我看到了这个进程14437
+$ sudo ps -ef | grep 14437
+nebula   13628 12567  0 14:47 pts/0    00:00:00 grep --color=auto 14437
+root     14437 14376  0 11月04 ?      00:19:56 /opt/symphony/symphony-agent serve --config /opt/symphony/config/config.yml --verbose
+
+于是我找到了是这个进程在往conn文件中写入信息
+
+```
+
 #### 去除空格
 ```sh
 $ echo "   lol  " | xargs
