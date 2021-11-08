@@ -1,5 +1,36 @@
 # shell commands
 
+#### 去除空格
+```sh
+$ echo "   lol  " | xargs
+
+Note: this doesn't remove all internal spaces so "foo bar" stays the same; it does NOT become "foobar". However, multiple spaces will be condensed to single spaces, so "foo    bar" will become "foo bar". In addition it doesn't remove end of lines characters.
+
+$ echo "   3918912k " | sed 's/ //g'
+
+
+```
+
+#### diff比较两个string
+```sh
+$ diff  <(echo "$string1" ) <(echo "$string2")
+
+or with a named pipe
+
+$ mkfifo ./p
+$ diff - p <<< "$string1" & echo "$string2" > p
+
+Greg's Bash FAQ: Working with Named Pipes
+
+Named pipe is also known as a FIFO.
+
+The - on its own is for standard input.
+
+<<< is a "here string".
+
+& is like ; but puts it in the background
+```
+
 #### apt
 ```sh
 # check version of installed package
