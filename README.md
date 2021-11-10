@@ -705,6 +705,9 @@ ssh root@${ip} 'helm list --col-width 200 | sed 1d | awk '{print $9}' | sort | u
 改成
 line='$9'
 ssh root@${ip} "helm list --col-width 200 | sed 1d | awk '{print $line}' | sort | uniq"
+   
+# 分隔符取列
+  cat filename | awk -F "msg=" '{print $2}' | sort | uniq
 ```
 
 #### shell脚本中要远程登录目标机器并执行命令
