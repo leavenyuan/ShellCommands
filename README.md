@@ -1,6 +1,16 @@
 # shell commands
 
-#### 找到写入数据到某个文件的进程
+#### kill占用某个端口的进程及其相关进程
+```sh
+$ sudo -s
+$ netstat -nlpt | grep 9094   #查看端口对应的进程占用
+$ kill `lsof -t -i:9094`      # kill占用端口的所有进程
+$ pstree -asp pid  # 查询该进程的依赖关系
+$ systemctl stop pname   #停止进程
+```
+
+
+#### 写入数据到某个文件的进程
 ```sh
 比如我知道该文件目录下有这两个文件：
 nebula@nebula:/opt/gateway-setup-v0.3.0/compose/data/symphony-agent/data.db$ ll
