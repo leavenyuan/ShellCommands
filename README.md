@@ -1,6 +1,11 @@
 # shell commands
 
+#### docker-proxy
+[ref](https://www.jianshu.com/p/91002d316185)
+
+
 #### kill占用某个端口的进程及其相关进程
+[ref link](https://blog.csdn.net/m0_37828989/article/details/115721880)
 ```sh
 $ sudo -s
 $ netstat -nlpt | grep 9094   #查看端口对应的进程占用
