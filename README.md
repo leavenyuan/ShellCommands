@@ -1,5 +1,9 @@
 # shell commands
 
+#### pid为1的进程systemd
+[ref](https://shareinto.github.io/2019/01/30/docker-init(1)/)
+
+
 #### docker-proxy
 [ref](https://www.jianshu.com/p/91002d316185)
 
