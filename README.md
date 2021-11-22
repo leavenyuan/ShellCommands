@@ -775,3 +775,8 @@ version_local=`echo $(chart_local) | sed "s/aurora-//g"`;  //chart_local: not fo
    ```sh
    $ find . -type f ! -name "*.log*" | xargs grep -i bucketname --colour
    ```
+   
+   * find and remove
+   ```sh
+   $  find . -type f -name "*.log" -exec rm {} \;
+   ```
