@@ -780,3 +780,11 @@ version_local=`echo $(chart_local) | sed "s/aurora-//g"`;  //chart_local: not fo
    ```sh
    $  find . -type f -name "*.log" -exec rm {} \;
    ```
+
+#### 标准输出重定向
+   ```sh
+   0 */3 * * * /usr/local/apache2/apachectl restart >/dev/null 2>&1
+   “/dev/null 2>&1”表示先将标准输出重定向到/dev/null，然后将标准错误重定向到标准输出，由于标准输出已经重定向到了/dev/null，因此标准错误也会重定向到/dev/null，这样日志输出问题就解决了。
+   /dev/null（或称空设备）在类Unix系统中是一个特殊的设备文件，它丢弃一切写入其中的数据（但报告写入操作成功），读取它则会立即得到一个EOF[1]。
+   在程序员行话，尤其是Unix行话中，/dev/null被称为比特桶[2]或者黑洞。
+   ```
