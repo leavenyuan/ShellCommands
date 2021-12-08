@@ -276,7 +276,10 @@ option1:
    screen -S jmeter_ac -d -m bash -c './jmeter.sh -n -t Requests.jmx -l log'
 option2:
    nohup kubectl logs -f pod-name --tail 0  > ~/log &
-
+option3:
+   setsid tail -f xx.log &> tail.log
+   
+几种方式的原理解析: https://www.playpi.org/2019051501.html
 ```
 
 #### Install nvm
