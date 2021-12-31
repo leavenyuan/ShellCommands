@@ -797,3 +797,24 @@ version_local=`echo $(chart_local) | sed "s/aurora-//g"`;  //chart_local: not fo
    /dev/null（或称空设备）在类Unix系统中是一个特殊的设备文件，它丢弃一切写入其中的数据（但报告写入操作成功），读取它则会立即得到一个EOF[1]。
    在程序员行话，尤其是Unix行话中，/dev/null被称为比特桶[2]或者黑洞。
    ```
+
+#### 重启命令比较
+
+   ```sh
+   init 6 Stop the operating system and reboot to the state defined by the initdefault entry in /etc/inittab.
+
+reboot - reboot performs a sync(1M) operation on the disks, and then a
+multi- user reboot is initiated. See init(1M) for details.
+
+"init 6" 基于一系列/etc/inittab文件，并且每个应用都会有一个相应shutdown脚本。
+'init 6' 调用一系列shutdown脚本(/etc/rc0.d/K*)来使系统优雅关机;
+'reboot'并不执行这些过程，reboot更是一个 kernel级别的命令，不对应用使用shutdown脚本。 .
+我们应该在通常情况下使用 init 6.
+在出问题的状况下或强制重启 时使用reboot.
+
+reboot is a more aggresive command to use. init 6 is much graceful
+
+use of `init 6` will give the cleanest and orderly reboot (init informs svc.startd of the runlevel change and will move to the appropriate milestone).
+use of `shutdown -y -g0 -i6 **message**` will invoke init as well as give you grace period and messages to user (shutdown invoked the same as init above).
+halt,reboot,poweroff will not run any of the shutdown scripts and should be last resort.
+   ```
