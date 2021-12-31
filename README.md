@@ -501,7 +501,8 @@ Just do import hashlib and do your stuff.
 ```sh
 ls -l /var/log             # what is logged
 who                        # see who logged in
-last | grep sysadmin       # find the login history of the user: sysadmin
+last | grep sysadmin       # 
+the login history of the user: sysadmin
 cat /etc/rsyslog.conf     #LOG FILE SUMMARY
 
 direcotry:
@@ -782,6 +783,11 @@ version_local=`echo $(chart_local) | sed "s/aurora-//g"`;  //chart_local: not fo
    * find and remove
    ```sh
    $  find . -type f -name "*.log" -exec rm {} \;
+   ```
+   
+   * find file by size
+   ```sh
+   find . -size +100000k 2>/dev/null
    ```
 
 #### 标准输出重定向
