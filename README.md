@@ -151,11 +151,11 @@ nc -l -p 33902  # listen on port
 nc localhost 33902   # another server
 
 # transmit tar file
-in: nc -l 9009 > tar -xzv
-out: tar -zcvf - foldername |  nc in-server-ip 9009
+发送端: nc -l 9009 > tar -xzv
+接收端: tar -zcvf - foldername |  nc in-server-ip 9009
 
-in: nc -l 9555 > file.txt/jpg
-out: nc [in's ip] 9555 < file.txt/jpg
+发送端: nc -l 9555 > file.txt/jpg
+接收端: nc [in's ip] 9555 < file.txt/jpg
 validate: md5sum [filename]
 
 ```
