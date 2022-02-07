@@ -789,6 +789,11 @@ version_local=`echo $(chart_local) | sed "s/aurora-//g"`;  //chart_local: not fo
    ```sh
    find . -size +100000k 2>/dev/null
    ```
+   
+   * 从指定文件夹查找
+   ```sh
+   find ./tests -type f | xargs grep -i "tag" --colour
+   ```
 
 #### 标准输出重定向
    ```sh
