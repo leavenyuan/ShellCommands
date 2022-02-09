@@ -823,3 +823,13 @@ use of `init 6` will give the cleanest and orderly reboot (init informs svc.star
 use of `shutdown -y -g0 -i6 **message**` will invoke init as well as give you grace period and messages to user (shutdown invoked the same as init above).
 halt,reboot,poweroff will not run any of the shutdown scripts and should be last resort.
    ```
+
+#### add alias in bash on mac
+   
+   ```sh
+   1. cd ~
+   2. touch ./bash_profile
+   3. vi ./bash_profile
+      alias ll="ls -l"
+   4. source ./bash_profile
+   ```
