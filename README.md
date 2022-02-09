@@ -41,6 +41,26 @@ root     14437 14376  0 11月04 ?      00:19:56 /opt/symphony/symphony-agent ser
 
 ```
 
+#### 查找docker部署的服务连接某个服务
+```sh
+
+$ netstat a | grep 3307
+
+tcp6       0      0 10.151.**.217:3307     172.29.0.14:35564       ESTABLISHED
+tcp6       0      0 10.151.**.217:3307     172.29.0.14:35540       ESTABLISHED
+
+$ docker network ls
+
+$ docker network inspect f0e  #查找上面的 172.29.0.14
+
+"cccf545eb7750192d6bb6b697800ecaec2652d23f718e4dc3d24a5e90bc7801e": {
+                "Name": "compose_gateway_1",
+                "EndpointID": "150939f9268670ae6cdabc23886545d8fdfee302a6f8a376da57fb5d2851e7e6",
+                "MacAddress": "02:42:ac:1d:00:0e",
+                "IPv4Address": "172.29.0.14/16",
+                "IPv6Address": ""
+
+```
 #### 去除空格
 ```sh
 $ echo "   lol  " | xargs
