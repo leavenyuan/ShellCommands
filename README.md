@@ -174,8 +174,8 @@ nc localhost 33902   # another server
 接收端: nc -l 9009 > tar -xzv
 发送端: tar -zcvf - foldername |  nc in-server-ip 9009
 
-接收端: nc -l 9555 > file.txt/jpg
-发送端: nc [in's ip] 9555 < file.txt/jpg
+接收端: nc -l 9555 > file
+发送端: nc [接收端 ip] 9555 < file
 validate: md5sum [filename]
 
 ```
