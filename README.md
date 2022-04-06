@@ -1,7 +1,8 @@
 # shell commands
 
-#### Linux init、service、systemctl 三者区别
-```sh
+<details>
+	<summary> Linux init、service、systemctl 三者区别 </summary>
+	
 init 是最初的进程管理方式
 service 是init 的另一种实现
 systemd 则是一种取代 initd 的解决方案
@@ -85,7 +86,13 @@ $ timedatectl
 $ timedatectl list-timezones                                                                                   
 // 设置当前时区
 $ sudo timedatectl set-timezone America/New_York
-```
+
+
+	
+</details>
+
+
+
 
 
 #### Linux终端彻底清空屏幕
@@ -117,6 +124,23 @@ $ pstree -asp pid  # 查询该进程的依赖关系
 $ systemctl stop pname   #停止进程
 ```
 
+#### Systemctl命令常见用法
+
+   -  列出所有可用单元文件：systemctl list-unit-files
+   -  列出所有可用单元：systemctl list-units
+   -  列出所有失败单元：systemctl --failed
+   -  检查某个单元是否启动：systemctl is-enabled httpd.service
+   -  检查某个服务的运行状态：systemctl status httpd.service
+   -  列出所有服务：systemctl list-unit-files --type=service
+   -  启动，停止，重启服务等：systemctl restart|restart|stop|reload httpd.service
+   -  查询服务是否激活，和配置是否开机启动：systemctl is-active httpd
+   -  使用systemctl命令杀死服务: systemctl kill httpd
+   -  列出系统的各项服务，挂载，设备等：systemctl list-unit-files --type
+   -  获得系统默认启动级别和设置默认启动级别：systemctl get-default/systemctl set-default multi-user.target
+   -  启动运行等级：systemctl isolate multiuser.target
+   -  重启、停止，挂起、休眠系统等：systemctl reboot|halt|suspend|hibernate|hybrid-sleep
+
+```
 
 #### 写入数据到某个文件的进程
 ```sh
