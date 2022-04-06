@@ -1,5 +1,104 @@
 # shell commands
 
+#### Linux init、service、systemctl 三者区别
+```sh
+init 是最初的进程管理方式
+service 是init 的另一种实现
+systemd 则是一种取代 initd 的解决方案
+其中 systemctl 是 systemd 的主命令，用于管理系统以及服务。
+
+
+init
+
+历史上，Linux 的启动一直采用init 进程。
+在类Unix 的计算机操作系统中，Init（初始化的简称）是在启动计算机系统期间启动的第一个进程。
+Init 是一个守护进程，它将持续运行，直到系统关闭。它是所有其他进程的直接或间接的父进程。
+因为init 的参数全在/etc/init.d目录下，所以使用 init 启动一个服务，应该这样做：
+$ sudo /etc/init.d/nginx start
+
+
+service
+
+通过查看man 手册页可以得知，service是一个运行System V init的脚本命令。
+那么什么是 System V init 呢？
+也就是/etc/init.d 目录下的参数。
+所以分析可知service 是去/etc/init.d目录下执行相关程序，服务配置文件的存放目录就是/etc/init.d.
+使用 service 启动一个服务
+$ service nginx start
+可以理解成 service 就是init.d 的一种实现方式。
+所以这两者启动方式（或者是停止、重启）并没有什么区别。
+$ sudo /etc/init.d/nginx start
+// 等价于
+$ service nginx start
+但是这两种方式均有如下缺点：
+启动时间长。init 进程是串行启动，只有前一个进程启动完，才会启动下一个进程。
+启动脚本复杂。init进程只是执行启动脚本，不管其他事情。脚本需要自己处理各种情况，这往往使得脚本变得很长。
+
+
+
+systemd
+
+Systemd 就是为了解决这些问题而诞生的。它包括 System and Service Manager，为系统的启动和管理提供一套完整的解决方案。
+Systemd 是Linux 系统中最新的初始化系统（init），它主要的设计目的是克服 System V init 固有的缺点，提高系统的启动速度。
+根据 Linux 惯例，字母d是守护进程（daemon）的缩写。 Systemd 这个名字的含义，就是它要守护整个系统。
+使用了 Systemd，就不需要再用init 了。Systemd 取代了initd（Initd 的PID 是0） ，成为系统的第一个进程（Systemd 的PID 等于 1），其他进程都是它的子进程。
+Systemd 的优点是功能强大，使用方便，缺点是体系庞大，非常复杂。
+查看Systemd 的版本信息
+$ systemctl --version
+
+Systemd 并不是一个命令，而是一组命令，涉及到系统管理的方方面面。
+
+systemctl
+systemctl是 Systemd 的主命令，用于管理系统。
+// 重启系统
+$ sudo systemctl reboot
+// 启动进入救援状态（单用户状态）
+$ sudo systemctl rescue
+// 管理服务
+$ sudo systemctl start nginx
+
+hostnamectl命令用于查看当前主机的信息。
+// 显示当前主机信息
+$ hostnamectl
+   Static hostname: ubuntu
+         Icon name: computer-laptop
+           Chassis: laptop
+        Machine ID: b5114b942a063c0d18870a896143220b
+           Boot ID: 5903399a0b824c31a582fe3f99324c38
+  Operating System: Ubuntu 16.04.7 LTS
+            Kernel: Linux 4.4.0-186-generic
+      Architecture: x86-64
+// 设置主机名
+$ sudo hostnamectl set-hostname BoodeUbuntu
+
+localectl命令用于查看本地化设置。
+// 查看本地化设置
+$ localectl
+// 设置本地化参数。
+$ sudo localectl set-locale LANG=en_GB.utf8
+$ sudo localectl set-keymap en_GB
+
+timedatectl命令用于查看当前时区设置。
+// 查看当前时区设置
+$ timedatectl
+// 显示所有可用的时区
+$ timedatectl list-timezones                                                                                   
+// 设置当前时区
+$ sudo timedatectl set-timezone America/New_York
+```
+
+
+#### Linux终端彻底清空屏幕
+```sh
+Linux用户基本上都习惯使用clear命令或Ctrl+L组合快捷键来清空终端屏幕。这样做其实并没有真正地清空屏幕，但当用鼠标向上滚时，你仍然能看到之前的命令操作留下来的输出。
+
+命令 printf “\033c” 或者 printf “\ec”真正地清空了终端屏幕.
+
+它的工作原理是什么？\033 == \x1B == 27 == ESC 于是，这个命令变成了c，它是VT-XXX中表示“Full Reset (RIS)”的转义码。printf是bash里内置的命令，内置命令的优先级比其它可执行文件要高。
+
+reset也是真正地清空终端屏幕。这个命令执行起来有点慢，但它的兼容性显然比之前的那个要好。reset命令在你的终端控制错乱时非常有用。
+```
+
 #### pid为1的进程systemd
 [ref](https://shareinto.github.io/2019/01/30/docker-init(1)/)
 
