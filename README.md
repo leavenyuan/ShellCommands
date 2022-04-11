@@ -1,5 +1,13 @@
 # shell commands
 
+#### 检查操作系统
+
+	hostnamectl
+	
+#### 检查核数
+
+	nproc
+
 <details>
 	<summary> Linux init、service、systemctl 三者区别 </summary>
 	
