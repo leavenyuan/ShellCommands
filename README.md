@@ -1016,3 +1016,17 @@ halt,reboot,poweroff will not run any of the shutdown scripts and should be last
 | ~/.bashrc | 该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该文件被读取. |
 | ~/.bash_logout | 当每次退出系统(退出bash shell)时,执行该文件. |
 
+
+#### 安装anaconda
+
+```
+下载指定版本: https://repo.anaconda.com/archive/
+赋予可执行权限: chmod +x Anaconda...sh
+执行安装: ./Anaconda...sh
+sudo vi ~/.bashrc 在文件末尾添加一行: export PATH=/root/anaconda3/bin:$PATH
+检查版本: conda -V
+```
+
+
+
+
