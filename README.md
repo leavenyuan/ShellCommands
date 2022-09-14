@@ -1,4 +1,4 @@
-# shell commands
+# shell commands 🐚
 
 #### 检查操作系统
 
