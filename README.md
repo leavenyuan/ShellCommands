@@ -1025,6 +1025,7 @@ halt,reboot,poweroff will not run any of the shutdown scripts and should be last
 执行安装: ./Anaconda...sh
 sudo vi ~/.bashrc 在文件末尾添加一行: export PATH=/root/anaconda3/bin:$PATH
 检查版本: conda -V
+[installation step-by-step](https://blog.csdn.net/wyf2017/article/details/118676765)	
 ```
 
 
