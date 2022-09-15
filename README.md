@@ -1025,8 +1025,15 @@ halt,reboot,poweroff will not run any of the shutdown scripts and should be last
 执行安装: ./Anaconda...sh
 sudo vi ~/.bashrc 在文件末尾添加一行: export PATH=/root/anaconda3/bin:$PATH
 检查版本: conda -V
-[installation step-by-step](https://blog.csdn.net/wyf2017/article/details/118676765)	
 ```
+[installation anaconda step-by-step](https://blog.csdn.net/wyf2017/article/details/118676765)
+	
+	
+#### the set builtin
+	
+	set 命令
+	set -e: exit immediately if a pipeline returns a non-zero status
+[manual of set](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
 
 
 
