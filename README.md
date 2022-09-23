@@ -1016,6 +1016,9 @@ halt,reboot,poweroff will not run any of the shutdown scripts and should be last
 | ~/.bashrc | 该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该文件被读取. |
 | ~/.bash_logout | 当每次退出系统(退出bash shell)时,执行该文件. |
 
+#### 字符编码辨析
+
+[参考资料](https://bbs.huaweicloud.com/blogs/230679)
 
 #### 安装anaconda
 
