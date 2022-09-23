@@ -1041,3 +1041,8 @@ sudo vi ~/.bashrc 在文件末尾添加一行: export PATH=/root/anaconda3/bin:$
 
 
 
+#### 转换文件内容为另一个字符集
+	iconv -f ISO-8859-1 -t UTF-8 in.txt > out.txt
+
+#### 获取当前文件的mime-encoding
+	file -I encoding.cpp
