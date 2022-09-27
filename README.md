@@ -949,6 +949,7 @@ version_local=`echo $(chart_local) | sed "s/aurora-//g"`;  //chart_local: not fo
    * find and remove
    ```sh
    $  find . -type f -name "*.log" -exec rm {} \;
+   $  find /data -type f -name "*.jpg" -maxdepth 1 -exec cp {} ./images \;
    ```
    
    * find file by size
