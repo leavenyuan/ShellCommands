@@ -298,8 +298,8 @@ lsof -i :18001 -r 2
 #### netcat
 ```sh
 apt get install netcat
-nc -l -p 33902  # listen on port
-nc localhost 33902   # another server
+nc -l -p 33902  # 其他设备listen on port
+nc {其他设备ip} 33902   # 本地，可以输入信息实现实时通讯
 
 # transmit tar file
 接收端: nc -l 9009 > tar -xzv
