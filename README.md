@@ -223,6 +223,9 @@ The - on its own is for standard input.
 & is like ; but puts it in the background
 ```
 
+#### 比较两个目录下的文件差异，并选择忽略日志文件
+`diff ./Nebula ./Nebula-2 -r -x "*.log"`
+
 #### apt
 ```sh
 # check version of installed package
