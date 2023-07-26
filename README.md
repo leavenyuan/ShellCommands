@@ -1050,3 +1050,20 @@ sudo vi ~/.bashrc 在文件末尾添加一行: export PATH=/root/anaconda3/bin:$
 
 #### 获取当前文件的mime-encoding
 	file -I encoding.cpp
+
+#### crontab -e 配置秒级执行方式
+```
+* * * * * sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 5; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 10; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 15; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 20; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 25; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 30; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 35; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 40; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 45; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 50; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+* * * * * sleep 55; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
+```
+ 
