@@ -1066,4 +1066,22 @@ sudo vi ~/.bashrc 在文件末尾添加一行: export PATH=/root/anaconda3/bin:$
 * * * * * sleep 50; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
 * * * * * sleep 55; sh /opt/ct.sh && python3.7 --version >> /opt/cronjob-test.log
 ```
+
+#### 将python中使用了logging因此不作为标准输出的内容写入到文件, 如果仅仅使用 > some.txt 是不会写入到文件中的
+```
+/usr/local/bin/python3.7 run.py > /opt/cronjob-test-1.log 2>&1
+```
+
+#### python your_script.py > output.txt 2>&1和 python your_script.py  2>&1 > output.txt的差异是什么
+```
+python your_script.py > output.txt 2>&1：这种方式先将标准输出（stdout）重定向到文件 output.txt，然后再将标准错误（stderr）重定向到与标准输出相同的位置，也就是文件 output.txt。这样，标准输出和标准错误都会被写入到同一个文件中。
+
+python your_script.py 2>&1 > output.txt：这种方式先将标准错误（stderr）重定向到标准输出，然后再将标准输出重定向到文件 output.txt。这样，标准输出会被写入到文件中，而标准错误仍然会显示在终端上，而不会写入到文件中。
+
+因此，如果你希望将标准输出和标准错误都写入到文件中，应该使用第一种方式 python your_script.py > output.txt 2>&1。这样，脚本的所有输出（包括标准输出和标准错误）都会被写入到 output.txt 文件中。
+
+如果你使用第二种方式 python your_script.py 2>&1 > output.txt，则标准输出会被写入到文件中，而标准错误仍然会显示在终端上。这可能会导致你无法完整地捕获脚本的输出内容
+```
+
+
  
