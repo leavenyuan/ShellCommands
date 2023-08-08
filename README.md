@@ -180,6 +180,9 @@ $ netstat a | grep 3307
 tcp6       0      0 10.151.**.217:3307     172.29.0.14:35564       ESTABLISHED
 tcp6       0      0 10.151.**.217:3307     172.29.0.14:35540       ESTABLISHED
 
+$ sudo netstat -tuln | grep 8443    # 根据不同的操作系统和版本，netstat 命令的选项可能会有所不同。某些系统可能不支持 -apt 这个组合参数
+$ sudo ss -tuln | grep 8443     # 在一些现代的 Linux 系统中，ss 命令已经取代了 netstat 命令，用于显示网络连接信息。
+
 $ docker network ls
 
 $ docker network inspect f0e  #查找上面的 172.29.0.14
