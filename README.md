@@ -19,6 +19,28 @@ esac
 
 ```
 
+```sh
+#!/bin/bash
+
+operation=$1
+
+case $operation in
+    "start")
+        echo "Starting the service..."
+        ;;
+    "stop")
+        echo "Stopping the service..."
+        ;;
+    "restart")
+        echo "Restarting the service..."
+        ;;
+    *)
+        echo "Unknown operation: $operation"
+        ;;
+esac
+
+```
+
 
 #### 检查操作系统
 
