@@ -1,5 +1,12 @@
 # shell commands 🐚
 
+#### mount a nas location to local disk 
+```sh
+sudo mkdir -p ./mnt/smb_share
+sudo mount_smbfs -N //sfaeadata003/ShareA/ ./mnt/smb_share/
+```
+
+
 #### case usage
 ```sh
 case 值 in
