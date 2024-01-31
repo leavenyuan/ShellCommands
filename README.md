@@ -1,5 +1,18 @@
 # shell commands 🐚
 
+#### mac上代替ssh-copy-id免密登录目标服务器
+```sh
+1. 生成公钥和私钥文件 -> 这将在~/.ssh生成id_rsa和id_rsa.pub文件
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
+2. 确认目标机器上/etc/ssh/sshd_config配置文件中AuthorizedKeysFile已经打开，并且文件为.ssh/authorized_keys
+3. 重启ssh: sudo service ssh restart
+4. 将id_rsa.pub文件中的内容拷贝到目标服务器上~/.ssh/authorized_keys中，如果没有这个目录和文件，需要创建，并且赋予700给.ssh,600给authorized_keys
+5. 目标机器上打开日志文件: sudo tail -f /var/log/auth.log
+6. 在执行机上执行ssh xxx@ip, 应该可以不用输入密码登录到目标机器
+7. 如果不行可以 ssh -i ~/.ssh/id_rsa xxx@ip 来指定私钥，常见情况是第一步中生成密钥文件时文件名不是id_rsa
+```
+
+
 #### mount a nas location to local disk 
 ```sh
 sudo mkdir -p ./mnt/smb_share
