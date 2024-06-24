@@ -1,5 +1,10 @@
 # shell commands 🐚
 
+#### 去除换行符
+```sh
+:%s/\n//g
+```
+
 #### 去除空格
 ```sh
 cat {file_name} | xargs
