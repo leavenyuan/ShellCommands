@@ -1,14 +1,13 @@
 # shell commands 🐚
 
+#### 查询某个字符串在整个文件中出现的次数
+`:%s/your_pattern//gn`
+
 #### 去除换行符
-```sh
-:%s/\n//g
-```
+`:%s/\n//g`
 
 #### 去除空格
-```sh
-cat {file_name} | xargs
-```
+`cat {file_name} | xargs`
 
 #### mac上代替ssh-copy-id免密登录目标服务器
 ```sh
@@ -74,11 +73,11 @@ esac
 
 #### 检查操作系统
 
-	hostnamectl
+`hostnamectl`
 	
 #### 检查核数
 
-	nproc
+`nproc`
 
 <details>
 	<summary> Linux init、service、systemctl 三者区别 </summary>
